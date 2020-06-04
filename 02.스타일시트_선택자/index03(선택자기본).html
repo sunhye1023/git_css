@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{font-family:cursive;} /* 전역선택자 */
+
+        b {color:blue;} /* 해당태그만 선택 */
+        #c1 {color:red;} /* 아이디 선택 */
+        .b1 {color:green;} /* 클래스 선택 */
+        .abox p {color:purple;} /* 하위에 포함된 모든 자식 선택(abox에 있는 p태그는 모두 보라색) */
+        .bbox > p {color:purple;} /* 하위에 포함된 직속 자식 선택(abox에 있는 p태그는 모두 보라색) */
+    </style>
+
+</head>
+<body>
+
+
+    <b>태그선택자1</b>
+    <b>태그선택자2</b>
+    <p id="c1">아이디선택자</p>
+    <p class="b1">클래스선택자</p>
+    <p class="b1">클래스선택자</p>
+
+    <hr>
+
+    <!-- 모두 블럭형태이다 -->
+    <div class="abox">
+        <p> 하위선택자</p>
+        <p> 하위선택자</p>
+        <ul>
+            <li><p>하위선택자</p></li>
+            <li><p>하위선택자</p></li>
+        </ul>
+    </div>
+
+    <div class="bbox">
+        <p>자식선택자</p>
+        <p>자식선택자</p>
+        <ul>
+            <li><p>하위선택자</p></li>
+            <li><p>하위선택자</p></li>
+        </ul>
+    </div>
+
+
+
+</body>
+</html>
