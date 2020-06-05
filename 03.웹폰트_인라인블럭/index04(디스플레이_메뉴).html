@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            text-align: center;
+            background-color: black;
+        }
+        .box > .gnb :hover {
+            background-color: #777;
+            
+        }
+        .box > .gnb > li {
+            display: inline-block;
+            border: 1px solid black;
+            height: 50px;
+            line-height: 50px;
+            width: 100px;
+            text-align: center;
+            background-color: black;
+            
+        }
+        .box > .gnb > li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+
+    </style>
+
+    <style>
+        .box2 {text-align: center;}
+        .box2 li {
+            display: inline-block; /* inline로 하면 height,line-height,width,text-align이 적용되지 않는다 */
+            border: 1px solid red;
+            height: 50px;
+            line-height: 50px;
+            width: 100px;
+            text-align: center;
+            background-color: yellow;
+            color: white; /* 글씨는 box2안에 li안에 a에 있기 때문에 적용되지 않는다 */
+        }
+        .box2 li a { 
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- 문제 -->
+    <div class="box">
+        <ul class="gnb">
+            <li><a href="">메뉴1</a></li>
+            <li><a href="">메뉴2</a></li>
+            <li><a href="">메뉴3</a></li>
+            <li><a href="">메뉴4</a></li>
+            <li><a href="">메뉴5</a></li>
+        </ul>
+    </div>
+
+
+    <ul class="box2">
+        <li><a href="">메뉴1</a></li>
+        <li><a href="">메뉴2</a></li>
+        <li><a href="">메뉴3</a></li>
+        <li><a href="">메뉴4</a></li>
+        <li><a href="">메뉴5</a></li>
+    </ul>
+
+</body>
+</html>
