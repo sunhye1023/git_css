@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 포지션 첫번째 규칙 : 부모요소에 position: relative가 들어간다. 들어가지 않으면 body기준으로 좌표가 잡힌다 */
+        /* 포지션 두번째 규칙 : left, right 그리고 top, bottom 중 하나를 선택해서 사용한다 */
+
+        .wrap {overflow: hidden; width: 900px; margin: 0 auto;}
+        .box {float: left; background-color: lightskyblue; width: 300px; height: 300px;}
+
+        /* position relative; 각각 box, wrap에 추가해서 확인 */
+        .wrap {position: relative;} /* wrap기준으로 떠오른다 */
+        .box {position: relative;} /* box기준으로 떠오른다 */
+        /* 기준이 없으면 body에 떠오른다 */
+        .pos {position: absolute; top: 25px; left: 0px; background-color: lightcoral}
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="box">박스1</div>
+        <div class="box">박스2</div>
+        <div class="box">박스3</div>
+        <div class="box">박스4
+            <div class="pos">야야야</div>
+        </div>
+    </div>
+
+</body>
+</html>

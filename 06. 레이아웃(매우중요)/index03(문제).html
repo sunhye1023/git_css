@@ -12,6 +12,8 @@
         .control {overflow: hidden;}
         .c-left {float: left;}
         .c-right {float: right;}
+        .control button {width: 50%;}
+        .title {padding-bottom: 15px;} /* 여백으로 box의 높이를 지정 */
     </style>
 
 </head>
@@ -20,16 +22,23 @@
     <section>
         <div class="list">
             <div class="left">사진</div>
+
             <div class="right">
-                <div>
+                <div class="title">
                     <div>제목</div>
                     <div>내용</div>
                 </div>
-                <div class="control">
+
+                <div class="control"> <!-- 쌓고자 하는 블록의 부모에 overflow: hidden;을 해준다 -->
                     <div class="c-left">가격</div>
                     <div class="c-right">1000원</div>
                 </div>
-                    <div>버튼</div>
+
+                <div class="control">
+                    <button class="c-left">장바구니</button>
+                    <button class="c-right">구매하기</button>
+                </div>
+
             </div>
         </div>
     </section>
