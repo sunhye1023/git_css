@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 부트스트랩 디자인 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+
+    <!-- 제이쿼리 추가 (순서 중요)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+        input,
+        textarea,
+        select,
+        button {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        @media (max-width: 767px) {
+            .zara-form {
+                padding: 50px 10px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .side {
+                display: none;
+            }
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            font-family: 'Merriweather', serif;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .container-fluid {
+            padding: 0px;
+        }
+
+        .title h1 {
+            background-color: white;
+            font-size: 100px;
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+            height: 110px;
+        }
+
+        .title ul {
+            display: block;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            overflow: hidden;
+        }
+
+        .title li {
+            float: left;
+        }
+
+        .title ul li a {
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .nav {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+            height: 45px;
+            background-color: #333;
+        }
+
+        .menu ul {
+            margin: 0px;
+        }
+
+        .menu ul li {
+            display: inline;
+        }
+
+        .menu ul li a {
+            display: inline-block;
+            height: 40px;
+            line-height: 45px;
+            border-color: #333;
+            color: #fff;
+            padding: 0px 20px;
+            margin: 0px 10px;
+            transition: all 0.5s ease-in-out;
+            text-decoration: none;
+
+        }
+
+        .menu ul li a:hover {
+            border-bottom: 1px solid #777;
+            border-width: 3px;
+        }
+
+        .main {
+            width: 1200px;
+            height: 750px;
+            margin: 170px auto 0 auto;
+            text-align: center;
+
+        }
+
+        .main img {
+            width: 100%;
+            top: 0;
+            left: 0;
+            margin-top: -15px;
+        }
+
+        .main-form {
+            position: relative;
+        }
+
+        .main-text {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+
+        .main-text h2 {
+            background-color: rgb(0, 0, 0, 0.3);
+            color: white;
+            margin: 0;
+            margin-bottom: 20px;
+
+        }
+
+        .main-text p {
+            background-color: rgb(0, 0, 0, 0.3);
+            color: white;
+
+        }
+
+        .side {
+            position: fixed;
+            right: 0px;
+            top: 400px;
+            z-index: 5;
+        }
+
+        .side ul {
+            background-color: #333;
+        }
+
+        .side ul li {
+            padding: 10px 10px;
+            border-bottom: 1px solid #444;
+            text-align: center;
+        }
+
+        .side ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            letter-spacing: -1px;
+        }
+
+        .side-list li:hover {
+            background-color: #333;
+        }
+
+        .side ul li p {
+            margin: 0px;
+        }
+
+        .content {
+            width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content .content-list {
+            display: block;
+            text-align: center;
+        }
+
+        .content ul li a,
+        h2,
+        h3 {
+            float: left;
+            padding: 0px;
+            position: relative;
+            width: 100%;
+        }
+
+        .content ul li img {
+            width: 220px;
+        }
+
+        .content ul li h2 {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .content ul li h3 {
+            font-size: 12px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        h2,
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content ul li .hover-content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+
+
+        }
+
+        .content ul li .hover-content a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            font-size: 15px;
+            background-color: rgb(0, 0, 0, .8);
+            line-height: 20px;
+            opacity: 0;
+            text-decoration: none;
+        }
+
+        .content ul li .hover-content a:hover {
+            opacity: 1;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .img-box {
+            width: 100%;
+            height: 100%;
+        }
+
+        .content-list li {
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-list {
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container-fluid">
+            <div class="title">
+                <h1>ZARA</h1>
+                <ul>
+                    <li><a href="">LOGIN</a></li>
+                    <li><a href="">REGISTER</a></li>
+                </ul>
+            </div>
+
+            <nav class="nav">
+                <div class="menu">
+                    <ul>
+                        <li><a href="">WOMAN</a></li>
+                        <li><a href="">TRF</a></li>
+                        <li><a href="">MAN</a></li>
+                        <li><a href="">KIDS</a></li>
+                        <li><a href="">EDITORIALS</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12 main-form">
+                    <img src="img/main.jpg" alt="main">
+                    <div class="main-text">
+                        <h2>Category Banner</h2>
+                        <p>Upload image and description</p>
+                        <p>Upload image and description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <ul class="content-list">
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <div class="img-box">
+                            <li>
+                                <a href="#"><img src="img/img_01.jpg" alt="product"></a>
+                                <h2>Product with Variants</h2>
+                                <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                                <div class="hover-content">
+                                    <a href="#">Jaket</a>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <li>
+                            <a href="#"><img src="img/img_02.jpg" alt="product"></a>
+                            <h2>Product with Variants</h2>
+                            <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                            <div class="hover-content">
+                                <a href="#">Jaket</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <li>
+                            <a href="#"><img src="img/img_03.jpg" alt="product"></a>
+                            <h2>Product with Variants</h2>
+                            <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                            <div class="hover-content">
+                                <a href="#">Jaket</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <li>
+                            <a href="#"><img src="img/img_04.jpg" alt="product"></a>
+                            <h2>Product with Variants</h2>
+                            <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                            <div class="hover-content">
+                                <a href="#">Jaket</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <li>
+                            <a href="#"><img src="img/img_05.jpg" alt="product"></a>
+                            <h2>Product with Variants</h2>
+                            <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                            <div class="hover-content">
+                                <a href="#">Jaket</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <li>
+                            <a href="#"><img src="img/img_06.jpg" alt="product"></a>
+                            <h2>Product with Variants</h2>
+                            <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                            <div class="hover-content">
+                                <a href="#">Jaket</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <li>
+                            <a href="#"><img src="img/img_07.jpg" alt="product"></a>
+                            <h2>Product with Variants</h2>
+                            <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                            <div class="hover-content">
+                                <a href="#">Jaket</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-4 zara-form">
+                        <li>
+                            <a href="#"><img src="img/img_08.jpg" alt="product"></a>
+                            <h2>Product with Variants</h2>
+                            <h3>★★★☆☆<span class="red">2REVIEW(S)<br>$59.00</span></h3>
+                            <div class="hover-content">
+                                <a href="#">Jaket</a>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <aside class="side">
+        <ul class="side-list">
+            <li>
+                <a href="">
+                    <p>전화문의</p>
+                    <p>010-1234-5678</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <p>카카오톡</p>
+                    <p>1:1상담</p>
+                </a>
+            </li>
+            <li><a href="">오시는길</a></li>
+        </ul>
+    </aside>
+
+
+</body>
+
+</html>
